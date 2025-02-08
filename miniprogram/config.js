@@ -17,7 +17,8 @@ export default {
   welcome: {
     title: "以爱之名",
     subtitle: "A&J WEDDING PARTY",
-    background: "/statics/images/welcome/background.jpg",
+    background:
+      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
   },
 
   // 故事内容配置
@@ -25,7 +26,8 @@ export default {
     {
       title: "Story 1",
       content: "XXXXXXX",
-      image: "/statics/images/stories/story1.jpg",
+      image:
+        "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
       layout: "overlap-right",
       imageStyle: "modern-square",
       textStyle: "elegant",
@@ -34,7 +36,8 @@ export default {
     {
       title: "Story 2",
       content: "XXXXXXXXX",
-      image: "/statics/images/stories/story2.jpg",
+      image:
+        "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
       layout: "diagonal-split",
       imageStyle: "parallax",
       textStyle: "minimal",
@@ -43,7 +46,8 @@ export default {
     {
       title: "Story 3",
       content: "XXXXXXXXXX",
-      image: "/statics/images/stories/story3.jpg",
+      image:
+        "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
       layout: "full-screen-parallax",
       imageStyle: "cinematic",
       textStyle: "overlay",
@@ -66,7 +70,8 @@ export default {
   ending: {
     title: "诚挚邀请",
     content: "我们诚挚地邀请您见证这重要的时刻\n您的祝福是我们最大的幸福",
-    background: "/statics/images/welcome/ending.jpg",
+    background:
+      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
   },
 
   // 图标配置
