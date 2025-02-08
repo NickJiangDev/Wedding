@@ -1,0 +1,102 @@
+<view class="container">
+  <!-- 背景音乐 -->
+  <audio src="{{config.bgm.src}}" id="bgm" loop></audio>
+  <view class="music-control {{isPlaying ? 'playing' : ''}}" bindtap="toggleMusic">
+    <image class="music-icon" src="{{config.icons.music}}"></image>
+  </view>
+
+  <!-- 开场动画和欢迎页 -->
+  <view class="welcome-section {{showWelcome ? 'show' : ''}} {{welcomeFullscreen ? 'fullscreen' : 'mini'}}" bindtap="handleWelcomeClick">
+    <image class="welcome-bg" src="{{config.welcome.background}}" mode="aspectFill"></image>
+    <view class="welcome-content">
+      <text class="welcome-title">{{config.welcome.title}}</text>
+      <text class="couple-names">{{config.couple.groom}} & {{config.couple.bride}}</text>
+      <text class="welcome-subtitle">{{config.welcome.subtitle}}</text>
+      <view class="welcome-hint" wx:if="{{welcomeFullscreen}}">
+        <text>点击继续</text>
+        <image class="arrow-down" src="{{config.icons.arrow}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 故事内容 -->
+  <scroll-view scroll-y class="story-container {{welcomeFullscreen ? 'hidden' : ''}}" bindscroll="onScroll">
+    <block wx:for="{{config.stories}}" wx:key="index">
+      <view class="story-unit {{item.show ? 'show' : ''}} layout-{{item.layout}} text-{{item.textStyle}}" data-index="{{index}}">
+        <!-- 重叠布局 -->
+        <block wx:if="{{item.layout === 'overlap-right'}}">
+          <view class="overlap-container">
+            <view class="text-content">
+              <view class="title">{{item.title}}</view>
+              <view class="content">{{item.content}}</view>
+            </view>
+            <view class="image-wrapper {{item.imageStyle}}">
+              <image class="story-image" src="{{item.image}}" mode="aspectFill"></image>
+              <view class="image-overlay"></view>
+            </view>
+          </view>
+        </block>
+
+        <!-- 对角线分割布局 -->
+        <block wx:elif="{{item.layout === 'diagonal-split'}}">
+          <view class="diagonal-container">
+            <view class="diagonal-image {{item.imageStyle}}">
+              <image class="story-image" src="{{item.image}}" mode="aspectFill"></image>
+              <view class="diagonal-overlay"></view>
+            </view>
+            <view class="diagonal-content">
+              <view class="title">{{item.title}}</view>
+              <view class="content">{{item.content}}</view>
+            </view>
+          </view>
+        </block>
+
+        <!-- 全屏视差布局 -->
+        <block wx:elif="{{item.layout === 'full-screen-parallax'}}">
+          <view class="parallax-container">
+            <view class="parallax-image {{item.imageStyle}}">
+              <image class="story-image" src="{{item.image}}" mode="aspectFill"></image>
+            </view>
+            <view class="parallax-content">
+              <view class="content-wrapper">
+                <view class="title">{{item.title}}</view>
+                <view class="content">{{item.content}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+
+    <!-- 婚礼信息 -->
+    <view class="wedding-info {{showWeddingInfo ? 'show' : ''}}">
+      <view class="title">婚礼信息</view>
+      <view class="info-content">
+        <view class="info-item">
+          <text class="label">时间：</text>
+          <text>{{config.weddingInfo.date}}</text>
+        </view>
+        <view class="info-item location" bindtap="openMap">
+          <image class="location-icon" src="{{config.icons.location}}"></image>
+          <text class="label">地址：</text>
+          <text>{{config.weddingInfo.location.address}}</text>
+        </view>
+      </view>
+      <map class="location-map" 
+           latitude="{{config.weddingInfo.location.latitude}}" 
+           longitude="{{config.weddingInfo.location.longitude}}" 
+           markers="{{markers}}" 
+           scale="16">
+      </map>
+    </view>
+
+    <!-- 结语和祝福 -->
+    <view class="ending-section {{showEnding ? 'show' : ''}}">
+      <image class="ending-bg" src="{{config.ending.background}}" mode="aspectFill"></image>
+      <view class="ending-content">
+        <text class="ending-title">{{config.ending.title}}</text>
+        <text class="ending-text">{{config.ending.content}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view> 
