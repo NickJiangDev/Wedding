@@ -47,8 +47,15 @@
 }
 
 .header-title {
-  font-size: 32rpx;
+  font-size: 56rpx;
   margin-bottom: 40rpx;
+  letter-spacing: 2rpx;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.header-sub-title {
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
   letter-spacing: 2rpx;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }

@@ -13,7 +13,8 @@ App({
         receptionLocation: "婚宴地点",
       },
       photos: {
-        coverImage: "/images/default-cover.png",
+        coverImage:
+          "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/11/67ab2f2c6464c.jpg",
         couplePhotos: ["/images/default-couple.png"],
         backgroundImages: ["/images/default-bg.png"],
       },

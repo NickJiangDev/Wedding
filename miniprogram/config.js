@@ -2,9 +2,10 @@
 module.exports = {
   // 基本信息
   basicInfo: {
-    title: "A & J 以爱之名",
+    title: "好久不见，婚礼见",
     brideName: "陈烨",
     groomName: "姜杉",
+    subTitle: "以爱之名，执子之手",
     weddingDate: "2025年5月25日",
     weddingTime: "10:00",
     weddingLocation: "和平官邸",
@@ -14,7 +15,7 @@ module.exports = {
   // 照片配置
   photos: {
     coverImage:
-      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
+      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/11/67ab2f2c6464c.jpg",
     couplePhotos: [
       "/images/default-couple.png", // 封面照片
       "/images/default-couple.png", // 故事页照片

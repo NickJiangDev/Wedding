@@ -4,7 +4,8 @@
     <image class="cover-photo" src="{{config.photos.coverImage}}" mode="aspectFill"></image>
     <view class="cover-content">
       <view class="header-title animate-fade-in">{{config.basicInfo.title}}</view>
-      <view class="wedding-title animate-fade-in">{{config.basicInfo.brideName}} & {{config.basicInfo.groomName}}</view>
+      <view class="wedding-title animate-fade-in">{{config.basicInfo.groomName}} & {{config.basicInfo.brideName}}</view>
+      <view class="header-sub-title animate-fade-in">{{config.basicInfo.subTitle}}</view>
       <view class="wedding-date animate-fade-in">{{config.basicInfo.weddingDate}}</view>
     </view>
   </view>
