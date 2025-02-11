@@ -5,11 +5,11 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Wedding Invitation",
+    "navigationBarTitleText": "婚礼请柬",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "enablePullDownRefresh": false
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio"]
-} 
+  "lazyCodeLoading": "requiredComponents"
+}

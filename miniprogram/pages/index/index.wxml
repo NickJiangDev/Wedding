@@ -1,102 +1,85 @@
 <view class="container">
-  <!-- 背景音乐 -->
-  <audio src="{{config.bgm.src}}" id="bgm" loop></audio>
-  <view class="music-control {{isPlaying ? 'playing' : ''}}" bindtap="toggleMusic">
-    <image class="music-icon" src="{{config.icons.music}}"></image>
-  </view>
-
-  <!-- 开场动画和欢迎页 -->
-  <view class="welcome-section {{showWelcome ? 'show' : ''}} {{welcomeFullscreen ? 'fullscreen' : 'mini'}}" bindtap="handleWelcomeClick">
-    <image class="welcome-bg" src="{{config.welcome.background}}" mode="aspectFill"></image>
-    <view class="welcome-content">
-      <text class="welcome-title">{{config.welcome.title}}</text>
-      <text class="couple-names">{{config.couple.groom}} & {{config.couple.bride}}</text>
-      <text class="welcome-subtitle">{{config.welcome.subtitle}}</text>
-      <view class="welcome-hint" wx:if="{{welcomeFullscreen}}">
-        <text>点击继续</text>
-        <image class="arrow-down" src="{{config.icons.arrow}}"></image>
-      </view>
+  <!-- 第一页：封面 -->
+  <view class="page page-cover">
+    <image class="cover-photo" src="{{config.photos.coverImage}}" mode="aspectFill"></image>
+    <view class="cover-content">
+      <view class="header-title animate-fade-in">{{config.basicInfo.title}}</view>
+      <view class="wedding-title animate-fade-in">{{config.basicInfo.brideName}} & {{config.basicInfo.groomName}}</view>
+      <view class="wedding-date animate-fade-in">{{config.basicInfo.weddingDate}}</view>
     </view>
   </view>
 
-  <!-- 故事内容 -->
-  <scroll-view scroll-y class="story-container {{welcomeFullscreen ? 'hidden' : ''}}" bindscroll="onScroll">
-    <block wx:for="{{config.stories}}" wx:key="index">
-      <view class="story-unit {{item.show ? 'show' : ''}} layout-{{item.layout}} text-{{item.textStyle}}" data-index="{{index}}">
-        <!-- 重叠布局 -->
-        <block wx:if="{{item.layout === 'overlap-right'}}">
-          <view class="overlap-container">
-            <view class="text-content">
-              <view class="title">{{item.title}}</view>
-              <view class="content">{{item.content}}</view>
-            </view>
-            <view class="image-wrapper {{item.imageStyle}}">
-              <image class="story-image" src="{{item.image}}" mode="aspectFill"></image>
-              <view class="image-overlay"></view>
-            </view>
-          </view>
-        </block>
-
-        <!-- 对角线分割布局 -->
-        <block wx:elif="{{item.layout === 'diagonal-split'}}">
-          <view class="diagonal-container">
-            <view class="diagonal-image {{item.imageStyle}}">
-              <image class="story-image" src="{{item.image}}" mode="aspectFill"></image>
-              <view class="diagonal-overlay"></view>
-            </view>
-            <view class="diagonal-content">
-              <view class="title">{{item.title}}</view>
-              <view class="content">{{item.content}}</view>
-            </view>
-          </view>
-        </block>
-
-        <!-- 全屏视差布局 -->
-        <block wx:elif="{{item.layout === 'full-screen-parallax'}}">
-          <view class="parallax-container">
-            <view class="parallax-image {{item.imageStyle}}">
-              <image class="story-image" src="{{item.image}}" mode="aspectFill"></image>
-            </view>
-            <view class="parallax-content">
-              <view class="content-wrapper">
-                <view class="title">{{item.title}}</view>
-                <view class="content">{{item.content}}</view>
-              </view>
-            </view>
-          </view>
-        </block>
-      </view>
-    </block>
-
-    <!-- 婚礼信息 -->
-    <view class="wedding-info {{showWeddingInfo ? 'show' : ''}}">
-      <view class="title">婚礼信息</view>
-      <view class="info-content">
-        <view class="info-item">
-          <text class="label">时间：</text>
-          <text>{{config.weddingInfo.date}}</text>
-        </view>
-        <view class="info-item location" bindtap="openMap">
-          <image class="location-icon" src="{{config.icons.location}}"></image>
-          <text class="label">地址：</text>
-          <text>{{config.weddingInfo.location.address}}</text>
-        </view>
-      </view>
-      <map class="location-map" 
-           latitude="{{config.weddingInfo.location.latitude}}" 
-           longitude="{{config.weddingInfo.location.longitude}}" 
-           markers="{{markers}}" 
-           scale="16">
-      </map>
+  <!-- 第二页：邀请函正文 -->
+  <view class="page page-invitation">
+    <view class="invitation-header sketch-text">hi~亲爱的你~</view>
+    <view class="invitation-content sketch-text">
+      当收到这封请柬的时候
+      我们的婚礼已经在倒计时啦~
+      
+      以前觉得婚礼是一则官方公告
+      现在才明白
+      这是一场为数不多的相聚
+      是千里迢迢的奔赴
+      是不计得失的支持
     </view>
+    <view class="invitation-footer sketch-text">好久不见，婚礼见
+      <text class="heart">❤</text>
+    </view>
+  </view>
 
-    <!-- 结语和祝福 -->
-    <view class="ending-section {{showEnding ? 'show' : ''}}">
-      <image class="ending-bg" src="{{config.ending.background}}" mode="aspectFill"></image>
-      <view class="ending-content">
-        <text class="ending-title">{{config.ending.title}}</text>
-        <text class="ending-text">{{config.ending.content}}</text>
+  <!-- 第三页：生日和缘分 -->
+  <view class="page page-story">
+    <view class="story-header sketch-text">想把我的另一半介绍给你</view>
+    <view class="birth-info">
+      <view class="moon-date">
+        <image src="/images/moon.png" mode="aspectFit"></image>
+        <text>1995.6.29</text>
+      </view>
+      <view class="moon-date">
+        <image src="/images/moon.png" mode="aspectFit"></image>
+        <text>1997.11.30</text>
       </view>
     </view>
-  </scroll-view>
-</view> 
+    <view class="story-content sketch-text">
+      出生时的月亮
+      Random luck in universe
+      宇宙间相遇的浪漫
+    </view>
+  </view>
+
+  <!-- 第四页：照片展示 -->
+  <view class="page page-photos">
+    <view class="photo-grid">
+      <view class="photo-item animate-scale-in">
+        <image src="{{config.photos.couplePhotos[1]}}" mode="aspectFill"></image>
+        <text class="photo-caption sketch-text">他有最真的笑容
+细腻的心思
+我一百分的男孩</text>
+      </view>
+      <view class="photo-item animate-scale-in">
+        <text class="date sketch-text">2020.11.30</text>
+        <text class="caption sketch-text">一见钟情
+是灵魂认出了你</text>
+      </view>
+    </view>
+    <view class="love-quote sketch-text">
+      我常常觉得也许这辈子
+      不会得到所谓的爱情了
+      直到
+      你出现了
+    </view>
+  </view>
+
+  <!-- 第五页：邀请结语 -->
+  <view class="page page-ending">
+    <view class="ending-title sketch-text">致珍贵的你们</view>
+    <view class="ending-content sketch-text">
+      人的一生有三万多天
+      很开心这一天
+      你专为我们而来
+      请准备好你的好心情和好胃口
+      来奔赴这场冬日的聚会叭~
+    </view>
+    <view class="double-happiness animate-scale-in">囍</view>
+  </view>
+</view>

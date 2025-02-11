@@ -1,125 +1,88 @@
-export default {
-  // 背景音乐配置
-  bgm: {
-    src: "/statics/music/background.mp3",
-    title: "背景音乐",
+// 婚礼请柬配置文件
+module.exports = {
+  // 基本信息
+  basicInfo: {
+    title: "A & J 以爱之名",
+    brideName: "陈烨",
+    groomName: "姜杉",
+    weddingDate: "2025年5月25日",
+    weddingTime: "10:00",
+    weddingLocation: "和平官邸",
+    receptionLocation: "和平官邸",
   },
 
-  // 新郎新娘信息
-  couple: {
-    groom: "姜杉",
-    bride: "陈烨",
-    date: "2025年5月25日",
-    time: "10:00 AM",
-  },
-
-  // 开场欢迎语
-  welcome: {
-    title: "以爱之名",
-    subtitle: "A&J WEDDING PARTY",
-    background:
+  // 照片配置
+  photos: {
+    coverImage:
       "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
+    couplePhotos: [
+      "/images/default-couple.png", // 封面照片
+      "/images/default-couple.png", // 故事页照片
+    ],
+    backgroundImages: ["/images/default-bg.png"],
   },
 
-  // 故事内容配置
-  stories: [
-    {
-      title: "Story 1",
-      content: "XXXXXXX",
-      image:
-        "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
-      layout: "overlap-right",
-      imageStyle: "modern-square",
-      textStyle: "elegant",
-      animation: "fade-in",
-    },
-    {
-      title: "Story 2",
-      content: "XXXXXXXXX",
-      image:
-        "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
-      layout: "diagonal-split",
-      imageStyle: "parallax",
-      textStyle: "minimal",
-      animation: "slide-up",
-    },
-    {
-      title: "Story 3",
-      content: "XXXXXXXXXX",
-      image:
-        "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
-      layout: "full-screen-parallax",
-      imageStyle: "cinematic",
-      textStyle: "overlay",
-      animation: "scale-in",
-    },
-  ],
+  // 邀请函文字
+  invitation: {
+    header: "hi~亲爱的你~",
+    content: `当收到这封请柬的时候
+我们的婚礼已经在倒计时啦~
 
-  // 婚礼信息
-  weddingInfo: {
-    date: "2024年X月X日 12:00",
-    location: {
-      name: "幸福大酒店",
-      address: "XX市XX区XX路XX号",
-      latitude: 30.123456,
-      longitude: 120.123456,
-    },
+以前觉得婚礼是一则官方公告
+现在才明白
+这是一场为数不多的相聚
+是千里迢迢的奔赴
+是不计得失的支持`,
+    footer: "好久不见，婚礼见",
   },
 
-  // 结语和祝福
+  // 故事页配置
+  story: {
+    header: "想把我的另一半介绍给你",
+    birthDates: {
+      groom: "1995.6.29",
+      bride: "1997.11.30",
+    },
+    content: `出生时的月亮
+Random luck in universe
+宇宙间相遇的浪漫`,
+    photoCaption: `他有最真的笑容
+细腻的心思
+我一百分的男孩`,
+    loveQuote: `我常常觉得也许这辈子
+不会得到所谓的爱情了
+直到
+你出现了`,
+  },
+
+  // 结语配置
   ending: {
-    title: "诚挚邀请",
-    content: "我们诚挚地邀请您见证这重要的时刻\n您的祝福是我们最大的幸福",
-    background:
-      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/08/67a72e423b179.jpg",
+    title: "致珍贵的你们",
+    content: `人的一生有三万多天
+很开心这一天
+你专为我们而来
+请准备好你的好心情和好胃口
+来奔赴这场冬日的聚会叭~`,
   },
 
-  // 图标配置
-  icons: {
-    music: "/statics/images/icons/music.png",
-    location: "/statics/images/icons/location.png",
-    arrow: "/statics/images/icons/arrow.png",
+  // 联系方式
+  contact: {
+    groomPhone: "",
+    bridePhone: "",
+    groomParentsPhone: "",
+    brideParentsPhone: "",
+  },
+
+  // 主题配置
+  theme: {
+    primaryColor: "#e60012", // 红色主题色
+    secondaryColor: "#333333", // 文字主色
+    fontFamily: "Microsoft YaHei",
   },
 
   // 动画配置
-  animations: {
-    "fade-in": {
-      duration: 800,
-      delay: 200,
-    },
-    "slide-up": {
-      duration: 1000,
-      delay: 300,
-    },
-    "scale-in": {
-      duration: 900,
-      delay: 250,
-    },
-  },
-
-  // 样式配置
-  theme: {
-    primaryColor: "#FF9999",
-    secondaryColor: "#FFE6E6",
-    fontFamily: "Microsoft YaHei",
-    titleSize: "24px",
-    contentSize: "16px",
-  },
-
-  // 布局配置
-  layouts: {
-    "overlap-right": {
-      imageWidth: "65%",
-      textWidth: "50%",
-      overlap: "30%",
-    },
-    "diagonal-split": {
-      angle: "45deg",
-      ratio: "60/40",
-    },
-    "full-screen-parallax": {
-      scrollSpeed: 0.5,
-      textPosition: "center",
-    },
+  animation: {
+    enablePageTransition: true,
+    enableElementAnimation: true,
   },
 };
