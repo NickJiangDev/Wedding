@@ -5,11 +5,10 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "A&J 's Wedding",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": false
+    "navigationBarTitleText": "A&J婚礼派对",
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
-}
+} 

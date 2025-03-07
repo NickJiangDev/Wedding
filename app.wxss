@@ -1,0 +1,41 @@
+/**app.wxss**/
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #f8f5ed;
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #8a8574;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+/* 通用标题样式 */
+.title {
+  color: #8a8574;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 30rpx 0;
+}
+
+/* 通用按钮样式 */
+.btn {
+  background-color: rgba(138, 133, 116, 0.8);
+  color: #fff;
+  border-radius: 30rpx;
+  padding: 16rpx 40rpx;
+  font-size: 14px;
+  border: none;
+  margin: 20rpx 0;
+}
+
+.btn:active {
+  background-color: rgba(138, 133, 116, 1);
+} 

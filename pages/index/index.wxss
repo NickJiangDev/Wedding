@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.long-image {
+  width: 100%;
+  height: auto;
+}
+
+.loading, .error {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  color: #ff4d4f;
+}
+
+/* 修改音乐播放器样式 */
+.music-player {
+  position: fixed;
+  top: 30rpx;
+  right: 30rpx;
+  z-index: 999;
+}
+
+.music-icon {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* 固定位置，不跳动 */
+  position: fixed;
+  top: 30rpx;
+  right: 30rpx;
+}
+
+.music-icon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.music-icon.playing {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 
