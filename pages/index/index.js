@@ -244,7 +244,7 @@ Page({
       success: (res) => {
         const latitude = this.data.latitude;
         const longitude = this.data.longitude;
-        const name = "婚礼地点"; // 替换为实际的地点名称
+        const name = "和平官邸"; // 替换为实际的地点名称
 
         switch (res.tapIndex) {
           case 0: // 百度地图
