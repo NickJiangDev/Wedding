@@ -1,7 +1,7 @@
 Page({
   data: {
     imageUrl:
-      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/03/06/67c986e1418b1.jpg",
+      "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/03/07/67cab43bd212e.jpg",
     loading: true,
     error: false,
     imageHeight: 0,
@@ -239,95 +239,10 @@ Page({
 
   // 打开地图导航选择器
   openMapNavigation: function () {
-    wx.showActionSheet({
-      itemList: ["百度地图", "高德地图", "腾讯地图", "系统导航"],
-      success: (res) => {
-        const latitude = this.data.latitude;
-        const longitude = this.data.longitude;
-        const name = "和平官邸"; // 替换为实际的地点名称
-
-        switch (res.tapIndex) {
-          case 0: // 百度地图
-            this.openBaiduMap(latitude, longitude, name);
-            break;
-          case 1: // 高德地图
-            this.openGaodeMap(latitude, longitude, name);
-            break;
-          case 2: // 腾讯地图
-            this.openTencentMap(latitude, longitude, name);
-            break;
-          case 3: // 系统导航
-            this.openSystemMap(latitude, longitude, name);
-            break;
-        }
-      },
-      fail: (res) => {
-        console.log(res.errMsg);
-      },
-    });
-  },
-
-  // 打开百度地图
-  openBaiduMap: function (latitude, longitude, name) {
-    wx.openLocation({
-      latitude,
-      longitude,
-      name,
-      address: name,
-      scale: this.data.mapScale,
-      success: function () {
-        console.log("打开百度地图成功");
-      },
-      fail: function (error) {
-        console.error("打开百度地图失败", error);
-        wx.showToast({
-          title: "打开百度地图失败",
-          icon: "none",
-        });
-      },
-    });
-  },
-
-  // 打开高德地图
-  openGaodeMap: function (latitude, longitude, name) {
-    wx.openLocation({
-      latitude,
-      longitude,
-      name,
-      address: name,
-      scale: this.data.mapScale,
-      success: function () {
-        console.log("打开高德地图成功");
-      },
-      fail: function (error) {
-        console.error("打开高德地图失败", error);
-        wx.showToast({
-          title: "打开高德地图失败",
-          icon: "none",
-        });
-      },
-    });
-  },
-
-  // 打开腾讯地图
-  openTencentMap: function (latitude, longitude, name) {
-    wx.openLocation({
-      latitude,
-      longitude,
-      name,
-      address: name,
-      scale: this.data.mapScale,
-      success: function () {
-        console.log("打开腾讯地图成功");
-      },
-      fail: function (error) {
-        console.error("打开腾讯地图失败", error);
-        wx.showToast({
-          title: "打开腾讯地图失败",
-          icon: "none",
-        });
-      },
-    });
+    const latitude = this.data.latitude;
+    const longitude = this.data.longitude;
+    const name = "和平官邸";
+    this.openSystemMap(latitude, longitude, name);
   },
 
   // 打开系统导航

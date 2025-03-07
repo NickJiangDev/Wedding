@@ -32,7 +32,7 @@ App({
       },
       music: {
         enable: true,
-        src: "https://rf-sycdn.kuwo.cn/f469a55ffece6f529a65f3ed63ed87e7/67ca8ddf/resource/n2/98/17/53766695.mp3",
+        src: "https://moguyun.ognai.com/api/shares/k0NzIzN/files/24315253-40f7-4fe1-94be-bdb1b93a3e21",
         title: "本気でオンリーユー (Let'S Get Married)",
         singer: "竹内まりや",
         autoplay: true,
