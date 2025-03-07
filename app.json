@@ -5,11 +5,19 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "A&C's Wedding Invitation",
+    "navigationBarTitleText": "婚礼邀请函",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-  "requiredBackgroundModes": ["audio"]
+  "requiredBackgroundModes": ["audio"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于导航到婚礼地点"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ]
 } 

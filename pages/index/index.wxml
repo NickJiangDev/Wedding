@@ -9,26 +9,35 @@
     </view>
   </view>
   
-  <!-- 滚动容器 -->
-  <scroll-view 
-    scroll-y 
-    class="scroll-container" 
-    scroll-top="{{scrollTop}}"
-    scroll-with-animation="{{scrollWithAnimation}}"
-    bindscroll="onScroll"
-    bindtouchstart="onTouchStart"
-    bindtouchend="onTouchEnd"
-    enhanced="true">
-    <image 
-      src="{{imageUrl}}" 
-      mode="widthFix" 
-      bindload="imageLoaded"
-      binderror="imageError"
-      class="long-image"
-    />
-    <view wx:if="{{loading}}" class="loading-container">
-      <image src="/images/loading.gif" mode="aspectFit" class="loading-gif"/>
+  <!-- 主图片 -->
+  <image 
+    src="{{imageUrl}}" 
+    mode="widthFix" 
+    bindload="imageLoaded"
+    binderror="imageError"
+    class="long-image"
+  />
+  
+  <!-- loading状态 -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <image src="/images/loading.gif" mode="aspectFit" class="loading-gif"/>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view wx:if="{{error}}" class="error">图片加载失败，请检查网络连接或图片地址</view>
+
+  <!-- 底部地图组件 -->
+  <view class="map-container" wx:if="{{!loading && !error}}" style="top: {{mapTop}}px;">
+    <map
+      class="map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      scale="{{mapScale}}"
+      show-location
+    ></map>
+    <view class="map-button" bindtap="openMapNavigation">
+      <text>导航到婚礼地点</text>
     </view>
-    <view wx:if="{{error}}" class="error">图片加载失败，请检查网络连接或图片地址</view>
-  </scroll-view>
+  </view>
 </view> 

@@ -1,17 +1,9 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 100vh; /* 使容器占满整个视口高度 */
-  padding: 0;
-  box-sizing: border-box;
-  position: relative; /* 为固定定位的元素提供参考 */
-  overflow: hidden; /* 防止内容溢出 */
-  /* 添加硬件加速 */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  min-height: 100vh;
+  position: relative;
+  overflow-y: auto;
+  background-color: #f8f0e5;
 }
 
 /* 滚动容器样式优化 */
@@ -22,6 +14,7 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   overflow-y: auto;
+  padding-bottom: 330rpx;  /* 为地图预留空间 */
   /* 优化硬件加速 */
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
@@ -37,6 +30,9 @@
 .long-image {
   width: 100%;
   display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
   /* 优化图片渲染 */
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
@@ -117,4 +113,37 @@
 .loading-gif {
   width: 128rpx;
   height: 128rpx;
+}
+
+.map-container {
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  height: 300rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-button {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f8f0e5;  /* 改为与页面背景色一致 */
+  color: #333;  /* 改为深色文字 */
+  padding: 12rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.map-button:active {
+  opacity: 0.9;
 } 
