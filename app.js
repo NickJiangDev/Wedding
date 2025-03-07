@@ -2,19 +2,17 @@ App({
   globalData: {
     config: {
       basicInfo: {
-        title: "A&J婚礼派对",
-        brideName: "新娘姓名",
-        groomName: "新郎姓名",
-        weddingDate: "婚礼日期",
-        weddingTime: "婚礼时间",
-        weddingLocation: "婚礼地点",
-        receptionLocation: "婚宴地点",
+        title: "A&C's Wedding Invitation",
+        brideName: "A",
+        groomName: "C",
+        weddingDate: "2025-05-25",
+        weddingTime: "10:30",
+        weddingLocation: "The Ritz Carlton",
+        receptionLocation: "The Ritz Carlton",
       },
       photos: {
-        // coverImage:
-        //   "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/02/11/67ab2f2c6464c.jpg",
         coverImage:
-          "https://www.听闻.cn:5244/d/本地/阿里云盘资料备份共享/图片/图床/2025/03/06/67c995a70d63a.gif",
+          "https://img2.kuwo.cn/star/starheads/500/47/14/4224449251.jpg",
         couplePhotos: ["/images/default-couple.png"],
         backgroundImages: ["/images/default-bg.png"],
       },
@@ -34,8 +32,9 @@ App({
       },
       music: {
         enable: true,
-        src: "https://mp3.itingwa.com/2017-07/22/20170722101716-NTk1NTkx.mp3",
-        title: "婚礼背景音乐",
+        src: "https://rf-sycdn.kuwo.cn/f469a55ffece6f529a65f3ed63ed87e7/67ca8ddf/resource/n2/98/17/53766695.mp3",
+        title: "本気でオンリーユー (Let'S Get Married)",
+        singer: "竹内まりや",
         autoplay: true,
         loop: true,
       },

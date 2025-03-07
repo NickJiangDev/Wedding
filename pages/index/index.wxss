@@ -4,13 +4,48 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100vh; /* 使容器占满整个视口高度 */
   padding: 0;
   box-sizing: border-box;
+  position: relative; /* 为固定定位的元素提供参考 */
+  overflow: hidden; /* 防止内容溢出 */
+  /* 添加硬件加速 */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* 滚动容器样式优化 */
+.scroll-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  /* 优化硬件加速 */
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  will-change: transform;
+  /* 减少重绘 */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* 使用 GPU 加速 */
+  perspective: 1000;
+  -webkit-perspective: 1000;
 }
 
 .long-image {
   width: 100%;
-  height: auto;
+  display: block;
+  /* 优化图片渲染 */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  /* 图片渲染质量 */
+  image-rendering: -webkit-optimize-contrast;
+  /* 防止图片闪烁 */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .loading, .error {
@@ -62,4 +97,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* 修改loading样式 */
+.loading-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f0e5; /* 改为与页面背景色相同 */
+}
+
+.loading-gif {
+  width: 128rpx;
+  height: 128rpx;
 } 
