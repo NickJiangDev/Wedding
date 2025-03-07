@@ -49,6 +49,31 @@ Page({
     this.initMusicPlayer();
   },
 
+  // 添加onReady生命周期函数
+  onReady: function () {
+    // 页面渲染完成后，再次计算地图位置
+    // 这对于第二次进入小程序特别有用
+    setTimeout(() => {
+      const query = wx.createSelectorQuery();
+      query
+        .select(".long-image")
+        .boundingClientRect((rect) => {
+          if (rect && rect.height > 0) {
+            const mapHeight = 300; // 地图高度（rpx）
+            const bottomMargin = -50; // 底部间距（rpx）
+            // 计算地图应该出现的位置（图片底部），保持原有计算逻辑
+            const mapTop = rect.height - mapHeight - bottomMargin;
+            console.log("onReady计算地图位置:", rect.height, mapTop);
+            this.setData({
+              imageHeight: rect.height,
+              mapTop: mapTop,
+            });
+          }
+        })
+        .exec();
+    }, 500);
+  },
+
   // 初始化音乐播放器
   initMusicPlayer: function () {
     const animation = wx.createAnimation({
@@ -99,13 +124,6 @@ Page({
           console.error("音频播放错误:", err);
           this.setData({ isPlaying: false });
           this.stopRotate();
-
-          // 显示错误提示
-          wx.showToast({
-            title: "音频播放失败",
-            icon: "none",
-            duration: 2000,
-          });
         });
 
         // 尝试自动播放
@@ -115,11 +133,6 @@ Page({
         }
       } catch (e) {
         console.error("音频初始化失败:", e);
-        wx.showToast({
-          title: "音频初始化失败",
-          icon: "none",
-          duration: 2000,
-        });
       }
     }
 
@@ -226,6 +239,30 @@ Page({
         this.audioContext.play();
       }
     }
+
+    // 在页面显示时，重新触发图片高度计算
+    // 这解决了第二次进入小程序时图片高度获取问题
+    wx.nextTick(() => {
+      setTimeout(() => {
+        const query = wx.createSelectorQuery();
+        query
+          .select(".long-image")
+          .boundingClientRect((rect) => {
+            if (rect && rect.height > 0) {
+              const mapHeight = 300; // 地图高度（rpx）
+              const bottomMargin = -50; // 底部间距（rpx）
+              // 计算地图应该出现的位置（图片底部），保持原有计算逻辑
+              const mapTop = rect.height - mapHeight - bottomMargin;
+              console.log("重新计算地图位置:", rect.height, mapTop);
+              this.setData({
+                imageHeight: rect.height,
+                mapTop: mapTop,
+              });
+            }
+          })
+          .exec();
+      }, 350); // 延迟确保图片已加载完成
+    });
   },
 
   // 页面隐藏时暂停播放
@@ -264,5 +301,42 @@ Page({
         });
       },
     });
+  },
+
+  // 用户点击右上角分享按钮时触发
+  onShareAppMessage: function () {
+    const app = getApp();
+    const config = app.globalData.config;
+
+    return {
+      title: `姜杉和陈烨的婚礼邀请函`,
+      path: "/pages/index/index",
+      imageUrl: config.photos.coverImage,
+      success: function (res) {
+        // 分享成功
+        wx.showToast({
+          title: "谢谢您分享我们的幸福！",
+          icon: "success",
+          duration: 2000,
+        });
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log("分享失败", res);
+      },
+    };
+  },
+
+  // 分享到朋友圈
+  onShareTimeline: function () {
+    const app = getApp();
+    const config = app.globalData.config;
+    const weddingDate = config.basicInfo.weddingDate;
+
+    return {
+      title: `诚邀您参加我们的婚礼`,
+      query: "",
+      imageUrl: config.photos.coverImage,
+    };
   },
 });

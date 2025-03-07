@@ -19,5 +19,7 @@
   },
   "requiredPrivateInfos": [
     "getLocation"
-  ]
+  ],
+  "enableShareTimeline": true,
+  "enableShareAppMessage": true
 } 
