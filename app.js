@@ -12,7 +12,7 @@ App({
       },
       photos: {
         coverImage:
-          "https://img2.kuwo.cn/star/starheads/500/47/14/4224449251.jpg",
+          "https://moguyun.ognai.com/api/shares/gwNTU3N/files/1e12f66d-e9e6-484b-83b1-340708739363",
         couplePhotos: ["/images/default-couple.png"],
         backgroundImages: ["/images/default-bg.png"],
       },
